@@ -1,4 +1,5 @@
-const {resolve} = require('path')
+// const {resolve} = require('path')
+import {resolve, join} from 'path'
 
 module.exports = env => { /* The reason we use a function here instead of an object
     is so we can pass in arguements. That is useful for setting the workspace
@@ -37,7 +38,10 @@ module.exports = env => { /* The reason we use a function here instead of an obj
             ]
         },
         devServer:{
-
+            // contentBase: join(__dirname, "dist"),
+            compress: true,
+            port: 9000,
+            open: true
         },
         plugins:[],
         devtool: env.prod ? 'source-map' : 'eval', /*Devtool stands for sourcemaps, 'eval' value is really
