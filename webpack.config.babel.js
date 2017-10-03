@@ -14,26 +14,28 @@ module.exports = env => { /* The reason we use a function here instead of an obj
              serve our bundle from, some other loader use this to know where to 
              put imagefiles or font files.*/
         },
-        rules:[
-            {
-                test:/\.js$/,
-                exclude: /node_modules/, 
-                loader: "babel-loader"
-            },
-            {
-                test:/\.css$/,
-                use:[
-                    'style-loader',
-                    {
-                        loader:'css-loader',
-                        options:{
-                            minimize:true
-                        }
-                    },
-                    'postcss-loader'
-                ]
-            }
-        ],
+        module:{            
+            rules:[
+                {
+                    test:/\.js$/,
+                    exclude: /node_modules/, 
+                    loader: "babel-loader"
+                },
+                {
+                    test:/\.css$/,
+                    use:[
+                        'style-loader',
+                        {
+                            loader:'css-loader',
+                            options:{
+                                minimize:true
+                            }
+                        },
+                        'postcss-loader'
+                    ]
+                }
+            ]
+        },
         devServer:{
 
         },
