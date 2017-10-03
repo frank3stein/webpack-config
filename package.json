@@ -1,0 +1,16 @@
+{
+  "name": "webpack-config",
+  "version": "1.0.0",
+  "description": "Webpack Config with Babel",
+  "main": "index.js",
+  "repository": "https://github.com/frank3stein/webpack-config.git",
+  "author": "Emil Martinov <martinov.emil@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
