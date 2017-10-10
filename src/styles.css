@@ -1,0 +1,120 @@
+/* custom properties */
+:root {
+--fontSize: 1rem;
+--mainColor: #12345678;
+--highlightColor: hwb(190, 35%, 20%);
+  --centered:{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  };
+  --flexContainer:{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  };
+  --flexItems:{
+    flex-grow: 1;
+    flex-basis: auto;
+  };
+}
+
+/* custom properties set & @apply rule */
+:root {
+  --centered: {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  };
+}
+
+ul{
+  padding: 0px;
+  @apply --flexContainer;
+  background-color: yellow;
+  list-style: none;
+  color: blue;  
+}
+li {
+  @apply --flexItems;
+  padding: 20px;
+  text-align: center;
+  border: black;
+}
+
+li:hover {
+  background-color: green;
+}
+
+.centered {
+  @apply --centered;
+}
+.textCenter {
+  text-align: center;
+}
+
+/* custom media queries */
+@custom-media --viewport-medium (width <= 50rem);
+
+html {
+  background-color: lightblue;
+}
+
+/* some var() & calc() */
+body {
+color: var(--mainColor);
+
+font-size: var(--fontSize);
+line-height: calc(var(--fontSize) * 1.5);
+padding: calc((var(--fontSize) / 2) + 1px);
+margin: 0px;
+}
+
+/* custom media query usage */
+@media (--viewport-medium) {
+body { font-size: calc(var(--fontSize) * 1.2); }
+}
+
+/* custom selectors */
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+:--heading { margin-top: 0 }
+
+/* colors stuff */
+a {
+color: var(--highlightColor);
+transition: color 1s; /* autoprefixed ! */
+}
+a:hover { color: gray(255, 50%) }
+a:active { color: rebeccapurple }
+a:focus { background-color: rgb(255 153 0 / 33%); outline: 3px solid hsl(1turn 60% 50%); }
+a:any-link { color: color(var(--highlightColor) blackness(+20%)) }
+
+/* font stuff */
+h2 {
+font-variant-caps: small-caps;
+}
+
+table {
+font-variant-numeric: lining-nums;
+}
+
+/* filters */
+.blur {
+filter: blur(2px);
+}
+.sepia {
+filter: sepia(.8);
+}
+
+/* overflow-wrap fallback */
+body {
+overflow-wrap: break-word;
+}
+
+/* attribute case insensitive */
+[frame=hsides i] {
+border-style: solid none;
+}
